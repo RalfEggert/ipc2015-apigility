@@ -23,11 +23,6 @@ return array(
         'ZF\\Rpc',
         'ZF\\Versioning',
         'User',
-        'Shop',
-        'DoctrineModule',
-        'DoctrineORMModule',
-        'Phpro\DoctrineHydrationModule',
-        'ZF\Apigility\Doctrine\Server',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

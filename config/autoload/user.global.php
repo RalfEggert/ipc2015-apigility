@@ -17,5 +17,18 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params'      => array(
+                    'host'     => 'localhost',
+                    'user'     => 'ipc2015',
+                    'password' => 'ipc2015',
+                    'dbname'   => 'ipc2015.shop',
+                    'charset'  => 'utf8',
+                ),
+            ),
+        ),
+    ),
 );
