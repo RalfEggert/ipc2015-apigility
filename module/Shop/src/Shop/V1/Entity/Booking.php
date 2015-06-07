@@ -2,6 +2,7 @@
 
 namespace Shop\V1\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,7 +46,16 @@ class Booking
      */
     private $customer;
 
-
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Bookingposition")
+     * @ORM\JoinTable(name="bookingposition",
+     *      joinColumns={@ORM\JoinColumn(name="booking", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="product", referencedColumnName="id")}
+     *      )
+     **/
+    private $positions;
 
     /**
      * Get id
@@ -127,5 +137,46 @@ class Booking
     public function getCustomer()
     {
         return $this->customer;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->positions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add position
+     *
+     * @param \Shop\V1\Entity\Bookingposition $position
+     *
+     * @return Booking
+     */
+    public function addPosition(\Shop\V1\Entity\Bookingposition $position)
+    {
+        $this->positions[] = $position;
+
+        return $this;
+    }
+
+    /**
+     * Remove position
+     *
+     * @param \Shop\V1\Entity\Bookingposition $position
+     */
+    public function removePosition(\Shop\V1\Entity\Bookingposition $position)
+    {
+        $this->positions->removeElement($position);
+    }
+
+    /**
+     * Get positions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPositions()
+    {
+        return $this->positions;
     }
 }

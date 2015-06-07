@@ -289,6 +289,7 @@ return array(
                 'entity_identifier_name' => 'id',
                 'route_name' => 'shop.rest.doctrine.booking',
                 'hydrator' => 'Shop\\V1\\Rest\\Booking\\BookingHydrator',
+                'max_depth' => 3,
             ),
             'Shop\\V1\\Rest\\Booking\\BookingCollection' => array(
                 'entity_identifier_name' => 'id',
@@ -300,6 +301,7 @@ return array(
                 'entity_identifier_name' => 'id',
                 'route_name' => 'shop.rest.doctrine.bookingposition',
                 'hydrator' => 'Shop\\V1\\Rest\\Bookingposition\\BookingpositionHydrator',
+                'max_depth' => 2,
             ),
             'Shop\\V1\\Rest\\Bookingposition\\BookingpositionCollection' => array(
                 'entity_identifier_name' => 'id',
@@ -358,7 +360,9 @@ return array(
             'entity_class' => 'Shop\\V1\\Entity\\Booking',
             'object_manager' => 'doctrine.entitymanager.orm_default',
             'by_value' => true,
-            'strategies' => array(),
+            'strategies' => array(
+                'positions' => 'ZF\\Apigility\\Doctrine\\Server\\Hydrator\\Strategy\\CollectionExtract',
+            ),
             'use_generated_hydrator' => true,
         ),
         'Shop\\V1\\Rest\\Bookingposition\\BookingpositionHydrator' => array(
