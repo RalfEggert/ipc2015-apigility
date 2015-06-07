@@ -31,7 +31,7 @@ class Customer
     /**
      * @var \Shop\V1\Entity\Address
      *
-     * @ORM\ManyToOne(targetEntity="Shop\V1\Entity\Address")
+     * @ORM\ManyToOne(targetEntity="Shop\V1\Entity\Address", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="invoice_address", referencedColumnName="id")
      * })
@@ -41,7 +41,7 @@ class Customer
     /**
      * @var \Shop\V1\Entity\Address
      *
-     * @ORM\ManyToOne(targetEntity="Shop\V1\Entity\Address")
+     * @ORM\ManyToOne(targetEntity="Shop\V1\Entity\Address", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="delivery_address", referencedColumnName="id")
      * })
