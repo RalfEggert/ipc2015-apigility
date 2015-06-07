@@ -7,8 +7,10 @@
 return array(
     // Development time modules
     'modules' => array(
+        'ZendDeveloperTools',
         'ZFTool',
         'ZF\Apigility\Admin',
+        'ZF\Apigility\Doctrine\Admin',
     ),
     // development time configuration globbing
     'module_listener_options' => array(

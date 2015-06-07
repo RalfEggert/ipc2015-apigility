@@ -5,13 +5,14 @@ nbproject
 .DS_Store
 .idea
 .project
+.puppet
 .settings
 composer.lock
 vendor/
 public/vendor/
-config/development.config.php
-config/autoload/local.php
-config/autoload/*.local.php
+#config/development.config.php
+#config/autoload/local.php
+#config/autoload/*.local.php
 !public/vendor/README.md
 data/cache/*
 !data/cache/.gitkeep
